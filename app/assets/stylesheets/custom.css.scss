@@ -1,3 +1,4 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
@@ -233,7 +234,7 @@ ul.navig li a.active{
 /*--Header-Ends--*/
 /*--banner-starts--*/
 .banner{
-	background:url(banner.jpg) no-repeat;
+	background:url(banner.jpg) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
