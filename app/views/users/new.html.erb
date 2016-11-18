@@ -1,7 +1,6 @@
 <div class="banner">
 
-    <%= form_for [@user],html: {class: "form-horizontal",multipart: true} do |r| %>
-       
+    <%= form_for [@user],html: {class: "form-horizontal",multipart: true} do |f| %>
        <div class="container">
          <div class="banner-top">
            <h1>Sign Up</h1>
@@ -10,7 +9,7 @@
               <p>Name</p>
             </div>
             <div class="bnr-right">
-              <%= r.password_field :name,class: "form-control" %>
+              <%= f.text_field :name,class: "form-control",id: "name" %>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -20,7 +19,7 @@
               <p>Email</p>
             </div>
             <div class="bnr-right">
-              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+              <%= f.email_field :email,class: "form-control" %>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -30,7 +29,7 @@
               <p>Password</p>
             </div>
             <div class="bnr-right">
-              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+              <%= f.password_field :password,class: "form-control" %>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -40,19 +39,16 @@
               <p>Pass word confirm</p>
             </div>
             <div class="bnr-right">
-              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+              <%= f.password_field :password_confirmation,class: "form-control" %>
             </div>
             <div class="clearfix"></div>
           </div>
            
            <div class="bnr-btn">
             <form>
-              <input type="submit" value="Book Now">
+              <%= f.submit "Create my account", class: "btn btn-primary" %>
             </form>
           </div>
-          
-
-
          </div>
         </div>
     <% end %>
