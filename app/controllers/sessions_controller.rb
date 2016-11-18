@@ -8,11 +8,13 @@ class SessionsController < ApplicationController
          login user
          redirect_to bookrooms_path
   	else
-  		flash[:danger].now='Invalid emails/password '
+  		flash[:danger]='Invalid emails/password '
   		render 'new'
   	end
   end
 
   def destroy
+  	log_out
+  	redirect_to 
   end
 end
