@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   	user=User.find_by(email: params[:session][:email].downcase)
   	if user && user.authenticate(params[:session][:password])
          login user
+         flash[:success]="Welcome to Plaza Hotel"
          redirect_to bookrooms_path
   	else
   		flash[:danger]='Invalid emails/password '

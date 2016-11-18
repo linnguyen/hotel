@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 	def create
 		@user=User.new(user_params)
 		if @user.save
-			log_in @user
-			flash[:success] ="Welcome to the Sample App!"
+			login @user
+			flash[:success] ="Welcome to the Plaza Hotel!"
 			redirect_to bookrooms_path
 		else
 			render 'new'
