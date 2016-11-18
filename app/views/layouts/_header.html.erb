@@ -12,9 +12,9 @@
 						<li><a href="about.html" class="hvr-bounce-to-bottom">About</a></li>
 						<li><a href="services.html" class="hvr-bounce-to-bottom">Services</a></li>
                         <% if logged_in? %>
-						<li><a href="services.html" class="hvr-bounce-to-bottom">Sign out</a></li>
+						<li><%= link_to "Sign out",logout_path,method: "delete",class:"hvr-bounce-to-bottom" %></li>
 						<% else %>
-						<li><a href="services.html" class="hvr-bounce-to-bottom">Sign in</a></li>
+						<li><%= link_to "Sign in",login_path,class:"hvr-bounce-to-bottom" %>
 						<% end %>
 
 						<li><a href="services.html" class="hvr-bounce-to-bottom">Book room</a></li>
