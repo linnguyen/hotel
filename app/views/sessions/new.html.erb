@@ -1,0 +1,37 @@
+
+<div class="banner">
+     <%= form_for(:session, url: login_path) do |f| %>
+       <div class="container">
+         <div class="banner-top">
+           <h1>Sign in</h1>
+
+           <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Email</p>
+            </div>
+            <div class="bnr-right">
+              <%= f.text_field :email,class: "form-control",id: "name" %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Pass word</p>
+            </div>
+            <div class="bnr-right">
+              <%= f.password_field :password,class: "form-control" %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+           
+           <div class="bnr-btn">
+            <form>
+              <%= f.submit "Login", class: "btn btn-primary" %>
+            </form>
+          </div>
+         </div>
+        </div>
+    <% end %>
+</div>
+  
