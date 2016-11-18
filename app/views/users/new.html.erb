@@ -1,2 +1,60 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="banner">
+
+    <%= form_for [@user],html: {class: "form-horizontal",multipart: true} do |r| %>
+       
+       <div class="container">
+         <div class="banner-top">
+           <h1>Sign Up</h1>
+           <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Name</p>
+            </div>
+            <div class="bnr-right">
+              <%= r.password_field :name,class: "form-control" %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Email</p>
+            </div>
+            <div class="bnr-right">
+              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Password</p>
+            </div>
+            <div class="bnr-right">
+              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          
+          <div class="bnr-one">
+            <div class="bnr-left">
+              <p>Pass word confirm</p>
+            </div>
+            <div class="bnr-right">
+              <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+           
+           <div class="bnr-btn">
+            <form>
+              <input type="submit" value="Book Now">
+            </form>
+          </div>
+          
+
+
+         </div>
+        </div>
+    <% end %>
+</div>
+  
