@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118024237) do
+ActiveRecord::Schema.define(version: 20161118155047) do
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "role"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +26,8 @@ ActiveRecord::Schema.define(version: 20161118024237) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "permission_id"
+    t.index ["permission_id"], name: "index_users_on_permission_id"
   end
 
 end

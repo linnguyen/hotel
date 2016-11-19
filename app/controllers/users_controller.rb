@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user=User.new(user_params)
+		@user.permission_id=3
 		if @user.save
 			login @user
 			flash[:success] ="Welcome to the Plaza Hotel!"

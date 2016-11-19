@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
          login user
          flash[:success]="Welcome to Plaza Hotel"
-         redirect_to bookrooms_path
+         if user.permission.role == 1
+          redirect_to admin_rooms_path
+         else
+          redirect_to bookrooms_path
+         end 
   	else
   		flash[:danger]='Invalid emails/password '
   		render 'new'

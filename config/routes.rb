@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   
   get 'sessions/new'
 
-  resources :users
   get 'users/new'
 
   get 'users/index'
@@ -20,6 +19,13 @@ Rails.application.routes.draw do
   delete '/logout',to: 'sessions#destroy'
   
   resources :bookrooms
+
+  resources :users
+
+  namespace :admin do
+    resources :rooms
+    resources :guests
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

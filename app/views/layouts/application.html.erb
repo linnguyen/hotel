@@ -9,11 +9,28 @@
   </head>
 
   <body>
+    
+    <% if logged_in? && current_user.permission.role == 1 %>
+    <%= render 'layouts/ad_header' %>
+    <% else %>
     <%= render 'layouts/header' %>
-    <% flash.each do |message_type,message| %>
-       <div><%= message %></div>
     <% end %>
+   
+
+
+    
+   
+
+    
+     
+     <div>
+      <% flash.each do |message_type,message| %>
+       <div><%= message %></div>
+     <% end %>
+     </div>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
+
   </body>
 </html>
