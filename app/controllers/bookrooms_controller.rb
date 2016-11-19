@@ -1,4 +1,5 @@
 class BookroomsController < ApplicationController
 	def index
-	end
+		@rooms=Room.all
+    end
 end

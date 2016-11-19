@@ -10,11 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118155047) do
+ActiveRecord::Schema.define(version: 20161119032134) do
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "role"
     t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "avatar"
+    t.integer  "status"
+    t.integer  "bed_quantity"
+    t.integer  "roomtype_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["roomtype_id"], name: "index_rooms_on_roomtype_id"
+  end
+
+  create_table "roomtypes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

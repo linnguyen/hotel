@@ -31,7 +31,7 @@
         <% @rooms.each do |r| %>
         <tr>
           <td align="center"><%= r.name %></td>
-          <td align="center"><%= r.room_type_id %></td>
+          <td align="center"><%= r.roomtype_id %></td>
           <td align="center"><%= r.bed_quantity %></td>
           <td align="center">
             <%= image_tag(r.avatar, size: "100x90") if r.avatar? %>
