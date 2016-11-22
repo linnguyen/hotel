@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
          if user.permission.role == 1
           redirect_to admin_rooms_path
          else
-          redirect_to bookrooms_path
+          redirect_to  checkins_path
          end 
   	else
   		flash[:danger]='Invalid emails/password '

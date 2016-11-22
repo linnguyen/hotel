@@ -17,7 +17,11 @@ gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
 gem "font-awesome-rails"
-#gem 'jquery-ui-rails'
+gem 'jquery-ui-rails'
+
+#gem 'bootstrap-datepicker-rails'
+
+
 
 
 

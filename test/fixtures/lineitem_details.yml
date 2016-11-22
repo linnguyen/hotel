@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nameguest: MyString
+  identification: MyString
+  address: MyString
+  gender: 1
+  lineitem: one
+
+two:
+  nameguest: MyString
+  identification: MyString
+  address: MyString
+  gender: 1
+  lineitem: two

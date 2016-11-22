@@ -9,3 +9,4 @@
 Permission.create!(role: 1,name: "admin")
 Permission.create!(role: 2,name: "mod")
 Permission.create!(role: 3,name: "user")
+#User.create()

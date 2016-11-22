@@ -17,15 +17,38 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require jquery-ui/datepicker
 //= require jquery-ui
 //= require jquery
 //
 //= require jquery.min
 //= require jquery-1.12.4
-//= require jquery-ui
 //= require jquery.validate.min
 //= require metisMenu.min
 //= require sb-admin-2
 //= require bootstrap.min
+//=
+
+// $(document).ready(function() {
+//   $('#datepicker').datepicker();
+// });
+
+$(function() {
+    $( "#starts_at" ).datepicker();
+  })
+
+$(document).ready(function(){
+	$(function(){
+       $( '.date,#datepicker').datepicker();
+
+	});
+
+});
 
 
+
+
+
+
+
+ 

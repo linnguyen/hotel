@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get '/logout',to: 'sessions#destroy'
   
-  resources :bookrooms
+  resources :checkins
 
   resources :users
 

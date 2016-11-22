@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119032134) do
+ActiveRecord::Schema.define(version: 20161121182149) do
+
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "numberofperson"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_checkins_on_user_id"
+  end
+
+  create_table "lineitem_details", force: :cascade do |t|
+    t.string   "nameguest"
+    t.string   "identification"
+    t.string   "address"
+    t.integer  "gender"
+    t.integer  "lineitem_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["lineitem_id"], name: "index_lineitem_details_on_lineitem_id"
+  end
+
+  create_table "lineitems", force: :cascade do |t|
+    t.integer  "room_id"
+    t.datetime "fromdate"
+    t.datetime "todate"
+    t.integer  "Checkin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Checkin_id"], name: "index_lineitems_on_Checkin_id"
+  end
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "role"

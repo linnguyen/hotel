@@ -1,0 +1,96 @@
+
+    <script src="js/jquery-ui.js"></script>
+      <script>
+        $(function() {
+        $( "#datepicker,#datepicker1" ).datepicker();
+        });
+      </script>
+    <div class="container">
+            <div class="form-search">
+            <%= form_tag(checkins_path) do %>
+                 <div class="banner-top">
+                     <h1>Search Room</h1>
+                     <div class="bnr-one">
+                      <div class="bnr-left">
+                        <p>Ckeck In</p>
+                      </div>
+                      <div class="bnr-right">
+                        <input class="date" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+
+                     <div class="bnr-one">
+                     <div class="bnr-left">
+                      <p>Email</p>
+                     </div>
+                     <div class="bnr-right">
+                      <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+                     </div>
+                     <div class="clearfix"></div>
+                     </div>
+
+                     <div class="bnr-one">
+                     <div class="bnr-left">
+                      <p>Email</p>
+                     </div>
+                     <div class="bnr-right">
+                      <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+                     </div>
+                     <div class="clearfix"></div>
+                     </div>
+
+                      <div class="bnr-btn">
+                        <form>
+                          <input type="submit" value="Search">
+                       </form>
+                     </div>
+                </div>
+            <% end %>
+          </div>
+          <div class="services">
+            <div class="list-search">
+               <div class="services-top heading">
+                    <h3>Choose Your Room</h3>
+               </div>
+
+              <% @rooms.each do |r| %>
+
+               <div class="col-md-4">
+                        <div class="feature-movie slider">
+                            <ul>
+                                <li>
+                                    <%= image_tag (r.avatar),size:"500x250",alt: "" %>
+                                    <span>
+                                    <h4>Zootopia</h4>
+                                    <p>Lorem ipsum dolor...</p>
+                                    </span>
+                                </li>
+                                <li>
+                                    <%=image_tag (r.avatar),size:"500x250",alt: "" %>
+                                    <span>
+                                    <h4>Doctor Strange</h4>
+                                    <p>Lorem ipsum dolor...</p>
+                                </span>
+                                </li>
+                                <li>
+                                    <%=image_tag (r.avatar),size:"500x250",alt: "" %>
+                                    <span>
+                                    <h4>Fantastic Beasts And Where To Find Them</h4>
+                                    <p>Lorem ipsum dolor...</p>
+                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <%= link_to "Book Room",new_checkin_path(room_id:r.id),class: "btn btn-primary" %>
+             </div>
+
+             <% end %>
+            
+             
+            
+             
+        </div>
+  </div>
+ </div>
