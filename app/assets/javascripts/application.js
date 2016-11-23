@@ -27,15 +27,18 @@
 //= require metisMenu.min
 //= require sb-admin-2
 //= require bootstrap.min
-//=
+//= require cocoon
 
 // $(document).ready(function() {
 //   $('#datepicker').datepicker();
 // });
+ $(function () {
+       $('#datetimepicker1').datepicker();
+  });
 
 $(function() {
     $( "#starts_at" ).datepicker();
-  })
+ })
 
 $(document).ready(function(){
 	$(function(){

@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
   belongs_to :roomtype
-  validates :name,  presence: true 
+  validates :room_code,  presence: true 
   mount_uploader :avatar, PictureUploader
 end

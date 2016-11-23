@@ -1,53 +1,64 @@
-
-    <script src="js/jquery-ui.js"></script>
-      <script>
-        $(function() {
-        $( "#datepicker,#datepicker1" ).datepicker();
-        });
-      </script>
+   <script type="text/javascript">
+     $(function () {
+       $('#datetimepicker1').datetimepicker();
+    });
+   </script>
     <div class="container">
-            <div class="form-search">
-            <%= form_tag(checkins_path) do %>
-                 <div class="banner-top">
-                     <h1>Search Room</h1>
-                     <div class="bnr-one">
-                      <div class="bnr-left">
-                        <p>Ckeck In</p>
+          <div class="form-search" style="margin-top:20px;">
+             <div class="col-md-8">
+               <h1 align="center">Search Room</h1>
+               <div class="panel panel-default">
+                 <br>     
+
+                 <div class="form-horizontal" >
+                 <%= form_tag checkins_path do %>
+                   <div class="form-group">
+                     <label class="col-lg-2 control-label">From date</label>
+                      <div class="col-md-8">
+                        <div class='input-group date' id='datetimepicker1'>
+                        <%= text_field_tag :fromdate,nil,id:"datetimepicker1",class: "date",class:"form-control" %>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        </div>
                       </div>
-                      <div class="bnr-right">
-                        <input class="date" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+                   </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">To date</label>
+                      <div class="col-md-8">
+                        <input class="form-control" type="text" name="ten" class="input-medium" />
                       </div>
-                      <div class="clearfix"></div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Chọn tên khách sạn</label>
+                      <div class="col-md-8">
+                        <input class="form-control" type="text" name="ten" class="input-medium" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Chọn loại phòng</label>
+                      <div class="col-md-8">
+                        <input class="form-control" type="text" name="ten" class="input-medium" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label"></label>
+                      <div class="col-md-8">
+                        <button type="button" class="btn btn-info">
+                          <span class="glyphicon glyphicon-search"></span> Search
+                       </button>
+                        <span></span>
+                      </div>
+                    </div>                        
+                <% end %>
+               </div>
 
-                     <div class="bnr-one">
-                     <div class="bnr-left">
-                      <p>Email</p>
-                     </div>
-                     <div class="bnr-right">
-                      <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
-                     </div>
-                     <div class="clearfix"></div>
-                     </div>
-
-                     <div class="bnr-one">
-                     <div class="bnr-left">
-                      <p>Email</p>
-                     </div>
-                     <div class="bnr-right">
-                      <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
-                     </div>
-                     <div class="clearfix"></div>
-                     </div>
-
-                      <div class="bnr-btn">
-                        <form>
-                          <input type="submit" value="Search">
-                       </form>
-                     </div>
-                </div>
-            <% end %>
+            </div>
           </div>
+       </div>
+      
+          
+          
           <div class="services">
             <div class="list-search">
                <div class="services-top heading">
@@ -83,7 +94,7 @@
                             </ul>
                         </div>
                         <br>
-                        <%= link_to "Book Room",new_checkin_path(room_id:r.id),class: "btn btn-primary" %>
+                        <%= link_to "Book Room",new_checkin_path(room_id: r.id),class: "btn btn-primary"%>
              </div>
 
              <% end %>

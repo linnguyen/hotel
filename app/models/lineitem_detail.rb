@@ -1,3 +1,3 @@
 class LineitemDetail < ApplicationRecord
-  belongs_to :lineitem
+  belongs_to :lineitem 
 end

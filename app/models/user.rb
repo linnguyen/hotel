@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
 	belongs_to :permission
 	has_many :checkins
+
+	
+
 end

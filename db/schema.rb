@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121182149) do
+ActiveRecord::Schema.define(version: 20161123053244) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "numberofperson"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "status",         default: 0
+    t.string   "telephone"
     t.index ["user_id"], name: "index_checkins_on_user_id"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "lineitem_details", force: :cascade do |t|
@@ -33,13 +43,13 @@ ActiveRecord::Schema.define(version: 20161121182149) do
   end
 
   create_table "lineitems", force: :cascade do |t|
-    t.integer  "room_id"
+    t.integer  "room_code"
     t.datetime "fromdate"
-    t.datetime "todate"
-    t.integer  "Checkin_id"
+    t.datetime "startdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Checkin_id"], name: "index_lineitems_on_Checkin_id"
+    t.integer  "checkin_id"
+    t.index ["checkin_id"], name: "index_lineitems_on_checkin_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -51,7 +61,7 @@ ActiveRecord::Schema.define(version: 20161121182149) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "name"
+    t.string   "room_code"
     t.string   "avatar"
     t.integer  "status"
     t.integer  "bed_quantity"
@@ -67,6 +77,8 @@ ActiveRecord::Schema.define(version: 20161121182149) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "hotel_id"
+    t.index ["hotel_id"], name: "index_roomtypes_on_hotel_id"
   end
 
   create_table "users", force: :cascade do |t|

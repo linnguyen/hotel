@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/logout',to: 'sessions#destroy'
   
+  get '/about',to: 'pages#about'
+  
   resources :checkins
 
   resources :users
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :rooms
     resources :guests
+    resources :bookrooms
+    resources :roomtypes
   end
 
 

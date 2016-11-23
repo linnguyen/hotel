@@ -35,6 +35,6 @@ class Admin::RoomsController < ApplicationController
 
     private
     def room_params
-    	params.require(:room).permit(:name,:bed_quantity,:roomtype_id,:avatar)
+    	params.require(:room).permit(:room_code,:bed_quantity,:roomtype_id,:avatar)
     end
 end

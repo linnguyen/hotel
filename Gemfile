@@ -18,6 +18,7 @@ gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'cocoon'
 
 #gem 'bootstrap-datepicker-rails'
 

@@ -2,12 +2,10 @@
 
 one:
   room_id: 1
-  fromdate: 2016-11-22 01:18:54
-  todate: 2016-11-22 01:18:54
-  Checkin: one
+  fromdate: 2016-11-22 11:29:31
+  startdate: 2016-11-22 11:29:31
 
 two:
   room_id: 1
-  fromdate: 2016-11-22 01:18:54
-  todate: 2016-11-22 01:18:54
-  Checkin: two
+  fromdate: 2016-11-22 11:29:31
+  startdate: 2016-11-22 11:29:31

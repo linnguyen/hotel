@@ -5,11 +5,11 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true,'data-no-turbolink' => true  %>
 
   </head>
 
-  <body>
+  <body data-no-turbolink="true">
     
     <% if logged_in? && current_user.permission.role == 1 %>
     <%= render 'layouts/ad_header' %>

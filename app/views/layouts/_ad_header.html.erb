@@ -39,6 +39,15 @@
         <ul class="nav" id="side-menu">
           <li><a href="#"><i class="fa fa-dashboard fa-fw"></i>
             Home</a></li>
+
+            <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
+              Quản lý loại phòng<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li><%= link_to "Danh sách loại phòng",admin_roomtypes_path %></li>
+                <li><%= link_to "Thêm loại phòng",new_admin_roomtype_path %></li>
+              </ul> <!-- /.nav-second-level -->
+            </li>
+
             <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
               Quản lý phòng<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
@@ -58,7 +67,7 @@
             <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
               Đặt phòng<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
-                <li><a href="#">Danh sách đặt phòng</a></li>
+                <li><%= link_to "Danh sách đặt phòng",admin_bookrooms_path %></li>
                 <li><a href="#">Tạo đơn hàng</a></li>
               </ul> <!-- /.nav-second-level -->
             </li>
