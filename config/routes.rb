@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/logout',to: 'sessions#destroy'
   
   get '/about',to: 'pages#about'
+
+
   
   resources :checkins
 
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
     resources :guests
     resources :bookrooms
     resources :roomtypes
+    get '/checkout',to: 'bookrooms#checkout'
+    get '/bill',to: 'bookrooms#bill'
   end
 
 

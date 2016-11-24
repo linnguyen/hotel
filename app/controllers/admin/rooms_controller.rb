@@ -17,10 +17,10 @@ class Admin::RoomsController < ApplicationController
     end
 
     def edit
-    	@room=Room.find_by(params[:id])
+    	@room=Room.find_by(id: params[:id])
     end
     def update
-    	@room=Room.find_by(params[:id])
+    	@room=Room.find_by(id: params[:id])
     	if @room.update_attributes(room_params)
     		flash[:success]="Room update successfully"
     		redirect_to admin_rooms_path

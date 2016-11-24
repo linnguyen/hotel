@@ -16,10 +16,10 @@ class Admin::RoomtypesController < ApplicationController
     end
 
     def edit
-    	@roomtype=Roomtype.find_by(params[:id])
+    	@roomtype=Roomtype.find_by(id: params[:id])
     end
     def update
-    	@roomtype=Roomtype.find_by(params[:id])
+    	@roomtype=Roomtype.find_by(id: params[:id])
     	if @roomtype.update_attributes(room_type_params)
     		flash[:success]="Room type update successfully"
     		redirect_to admin_roomtypes_path

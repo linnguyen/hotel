@@ -1,8 +1,4 @@
-   <script type="text/javascript">
-     $(function () {
-       $('#datetimepicker1').datetimepicker();
-    });
-   </script>
+
     <div class="container">
           <div class="form-search" style="margin-top:20px;">
              <div class="col-md-8">
@@ -15,8 +11,8 @@
                    <div class="form-group">
                      <label class="col-lg-2 control-label">From date</label>
                       <div class="col-md-8">
-                        <div class='input-group date' id='datetimepicker1'>
-                        <%= text_field_tag :fromdate,nil,id:"datetimepicker1",class: "date",class:"form-control" %>
+                        <div class='input-group '>
+                        <%= text_field_tag :fromdate,nil,:id => 'datepicker',class: "form-control" %>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>

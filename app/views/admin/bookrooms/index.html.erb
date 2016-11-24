@@ -17,27 +17,41 @@
         <tr>
           <th align="center">Booking id</th>
           <th align="center">Tên khách hàng</th>
-          <th align="center">Số chứng minh</th>
           <th align="center">Số điện thoại</th>
           <th align="center">Số người ở</th>
-          <th align="center">Tình Trạng</th>
-          <th align="center">Chức năng</th>
+          <th align="center">Tình trạng</th>
+          <th align="center">Chi tiết</th>
+          <th align="center">Action</th>
+          <th align="center">Check out</th>
         </tr>
       </thead>
       <tbody id="tbl-body">
+        <% i=0 %>
         <% @bookrooms.each do |b| %>
+        <% i=i+1 %>
         <tr>
-          <td align="center"><%= b.user_id %></td>
+          <td align="center"><%= i %></td>
+          <td align="center"><%= b.user.name %></td>
+          <td align="center"><%= b.telephone %></td>
+          <td align="center"><%= b.numberofperson %></td>
           <td align="center"><%= b.status %></td>
-          <td align="center"><%= b.status %></td>
-          <td align="center">
-            
+          <td text-align:center>
+               <%= link_to admin_bookroom_path(b),class: "btn btn-info btn-lg" do %>
+                <span class="glyphicon glyphicon-zoom-in"></span>
+               <% end %>
           </td>
           <td text-align:center>
-            <img src="images/active.png" width="20" height="20" />
+             <a href="#" class="btn btn-info btn-lg">
+               <span class="glyphicon glyphicon-remove"></span> 
+            </a>
+            <a href="#" class="btn btn-info btn-lg">
+              <span class="glyphicon glyphicon-ok-circle"></span> 
+            </a>
           </td>
           <td align="center">
-             
+             <%= link_to admin_checkout_path,class: "btn btn-info btn-lg" do %>
+              <span class="glyphicon glyphicon-arrow-right"></span>
+             <% end %>
           </td>
         </tr>
         <% end %>

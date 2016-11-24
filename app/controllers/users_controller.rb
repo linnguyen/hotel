@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		if @user.save
 			login @user
 			flash[:success] ="Welcome to the Plaza Hotel!"
-			redirect_to bookrooms_path
+			redirect_to checkins_path
 		else
 			render 'new'
 		end
