@@ -1,0 +1,100 @@
+<div id="page-wrapper">
+<div class="container-fluid" style="width:80%;">
+    <div class="row">
+        <div class="col-xs-12">
+        	<div class="invoice-title">
+    			<h2>Invoice</h2><h3 class="pull-right">Order # 12345</h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong>Billed To:</strong><br>
+    					<%= @user.name %><br>
+    					Da Nang<br>
+    					VietNam<br>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+        			<strong>From:</strong><br>
+    					Plaza Hotel<br>
+                        Lien Chieu- Da Nang<br>
+    					Nguyen Luong Bang<br>
+                        54
+    					
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					<strong>Payment Method:</strong><br>
+    					<%= @paymethod %><br>
+    					*** 34445
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					<strong>Order Date:</strong><br>
+    					<%= Time.now %><br><br>
+    				</address>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Item</strong></td>
+        							<td class="text-center"><strong>Quantity</strong></td>
+        							<td class="text-center"><strong>Per hours</strong></td>
+                                    <td class="text-center"><strong>Hours</strong></td>
+                                    <td class="text-center"><strong>VAT</strong></td>
+        							<td class="text-right"><strong>Totals</strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                <% @checkins.each do |c| %>
+                                <% lineitem = get_corresspond_lineitem c.id %>
+    							<tr>
+    								<td><%= lineitem.room_code %></td>
+                                    <td><%= lineitem.numberofperson %>
+    								<td class="text-center"><%= m=(get_corresspond_roomtype lineitem.room_code).price %></td>
+    								<td class="text-center"><%= t=get_time_booking lineitem.startdate, lineitem.fromdate %></td>
+    								<td class="text-center">2.6%</td>
+                                    <td class="text-right"><%= t*m %></td>
+    							</tr>
+                                <% end %>
+    							<tr>
+    								<td class="thick-line"></td>
+    								<td class="thick-line"></td>
+    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
+    								<td class="thick-line text-right">$670.99 Dong</td>
+    							</tr>
+    							<tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Total</strong></td>
+    								<td class="no-line text-right">$685.99 Dong</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+</div>

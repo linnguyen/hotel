@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123101005) do
+ActiveRecord::Schema.define(version: 20161125015927) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "numberofperson"
@@ -46,10 +46,20 @@ ActiveRecord::Schema.define(version: 20161123101005) do
     t.string   "room_code"
     t.datetime "fromdate"
     t.datetime "startdate"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "checkin_id"
+    t.integer  "numberofperson"
+    t.index ["checkin_id"], name: "index_lineitems_on_checkin_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "hours"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "checkin_id"
-    t.index ["checkin_id"], name: "index_lineitems_on_checkin_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "permissions", force: :cascade do |t|

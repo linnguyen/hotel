@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_no_cache
 
-	  def set_no_cache
+	 def set_no_cache
 	response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
 	response.headers["Pragma"] = "no-cache"
 	response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
    def current_check_in
-   	    current_user.checkins.where("status =?",0)
+   	    #current_user.checkins.
    end
   
 end

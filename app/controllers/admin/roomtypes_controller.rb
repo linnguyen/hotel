@@ -1,9 +1,9 @@
 class Admin::RoomtypesController < ApplicationController
 	def new
-      @room_type=Roomtype.new
+      @roomtype=Roomtype.new
     end
     def create
-       @room_type=Roomtype.new (room_type_params)
+       @roomtype=Roomtype.new (room_type_params)
        if @room_type.save
        	flash[:success]="Room type created successfully"
        	redirect_to admin_roomtypes_path

@@ -31,8 +31,10 @@ Rails.application.routes.draw do
     resources :guests
     resources :bookrooms
     resources :roomtypes
-    get '/checkout',to: 'bookrooms#checkout'
     get '/bill',to: 'bookrooms#bill'
+    post '/bill',to: 'bookrooms#bill'
+    get '/checkout',to: 'bookrooms#checkout'
+    get '/checkin',to: 'bookrooms#checkin'
   end
 
 

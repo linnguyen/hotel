@@ -15,10 +15,8 @@
 						<li><%= link_to "Sign out",logout_path,method: "delete",class:"hvr-bounce-to-bottom" %></li>
 						<% else %>
 						<li><%= link_to "Sign in",login_path,class:"hvr-bounce-to-bottom" %>
-						<% end %>
-
-						<li><a href="services.html" class="hvr-bounce-to-bottom">Book room</a></li>
-						
+						<% end %>				
+						<li><%= link_to "Books room",checkins_path,class:"hvr-bounce-to-bottom" %>
 						<li><a href="contact.html" class="hvr-bounce-to-bottom">Contact</a></li>
 					</ul>
 			</div>

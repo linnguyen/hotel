@@ -19,12 +19,6 @@
 				    <input type="text" name="" value="<%= current_user.name %>" class="form-control">
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-lg-2 control-label">Số người</label>
-				<div class="col-lg-8">
-					<%= c.text_field :numberofperson,class:'form-control'%>
-				</div>
-			</div>
             <div class="form-group">
 				<label class="col-lg-2 control-label">Số điện thoại</label>
 				<div class="col-lg-8">
@@ -51,6 +45,12 @@
 				<label class="col-lg-2 control-label">Ngày trả phòng dự kiến</label>
 				<div class="col-lg-8 ">				
                     <%=lineitem_builder.date_field :fromdate,id:"datepicker1",class:"form-control"%>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Số người</label>
+				<div class="col-lg-8">
+					<%= lineitem_builder.text_field :numberofperson,class:'form-control'%>
 				</div>
 			</div>
 

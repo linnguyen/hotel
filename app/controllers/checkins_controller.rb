@@ -1,4 +1,5 @@
 class CheckinsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :create]
 	def index
 		@rooms=Room.all
   end
@@ -42,6 +43,9 @@ class CheckinsController < ApplicationController
 
       #else
           @checkin =Checkin.create checkin_params
+           # @checkin=current_user.checkins.last
+           # @checkin.lineitems.create checkin_params1
+
      # end
        #debugger
        redirect_to checkins_path
@@ -51,17 +55,21 @@ class CheckinsController < ApplicationController
     private
 
     def checkin_params
-       params.require(:checkin).permit(:numberofperson,:telephone,:user_id,:description,
-        lineitems_attributes:[:id,:room_code,:startdate,:fromdate,
+       params.require(:checkin).permit(:telephone,:user_id,:description,
+        lineitems_attributes:[:id,:room_code,:startdate,:fromdate,:numberofperson,
         lineitem_details_attributes:[:id,:nameguest,:identification,:address]])
        
 
      # debugger
-     end
+    end
 
-    # def checkin_params1
-    #     params.permit(:id,:room_code,:startdate,:fromdate,
-    #     lineitem_details_attributes:[:id,:nameguest,:identification,:address])
-    # end 
+     def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_path
+      end
+    end
+
+    
 
 end

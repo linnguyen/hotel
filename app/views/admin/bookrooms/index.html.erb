@@ -28,7 +28,38 @@
       <tbody id="tbl-body">
         <% i=0 %>
         <% @bookrooms.each do |b| %>
-        <% i=i+1 %>
+        <% 
+          i=i+1      
+          if b.pending? 
+              icon_detail = "btn btn-info btn-lg"
+              icon_checkout = "btn btn-default btn-lg"
+              icon_remove = "btn btn-info btn-lg"
+              icon_ok = "btn btn-info btn-lg"
+              status_detail = false
+              status_checkout = true
+              status_remove = false
+              status_ok = false
+          elsif b.staying?
+              icon_detail = "btn btn-info btn-lg"
+              icon_checkout = "btn btn-info btn-lg"
+              icon_remove = "btn btn-default btn-lg"
+              icon_ok = "btn btn-default btn-lg"
+              status_detail = false
+              status_checkout = false
+              status_remove = true
+              status_ok = true
+          else
+              icon_detail = "btn btn-info btn-lg"
+              icon_checkout = "btn btn-default btn-lg"
+              icon_remove = "btn btn-default btn-lg"
+              icon_ok = "btn btn-default btn-lg"
+              status_detail = false
+              status_checkout = true
+              status_remove = true
+              status_ok = true
+          end
+        %>
+
         <tr>
           <td align="center"><%= i %></td>
           <td align="center"><%= b.user.name %></td>
@@ -36,20 +67,20 @@
           <td align="center"><%= b.numberofperson %></td>
           <td align="center"><%= b.status %></td>
           <td text-align:center>
-               <%= link_to admin_bookroom_path(b),class: "btn btn-info btn-lg" do %>
+               <%= link_to admin_bookroom_path(b),class: icon_detail ,:disabled => status_detail do %>
                 <span class="glyphicon glyphicon-zoom-in"></span>
                <% end %>
           </td>
           <td text-align:center>
-             <a href="#" class="btn btn-info btn-lg">
-               <span class="glyphicon glyphicon-remove"></span> 
-            </a>
-            <a href="#" class="btn btn-info btn-lg">
-              <span class="glyphicon glyphicon-ok-circle"></span> 
-            </a>
+             <%= link_to admin_checkout_path(:user_id => b.user.id),class: icon_remove ,:disabled => status_remove do %>
+              <span class="glyphicon glyphicon-remove "></span>
+             <% end %>
+             <%= link_to admin_checkin_path(:user_id => b.user.id),class: icon_ok ,:disabled => status_ok do %>
+              <span class="glyphicon glyphicon-ok-circle"></span>
+             <% end %>
           </td>
           <td align="center">
-             <%= link_to admin_checkout_path,class: "btn btn-info btn-lg" do %>
+             <%= link_to admin_checkout_path(:user_id => b.user.id),class: icon_checkout,:disabled => status_checkout do %>
               <span class="glyphicon glyphicon-arrow-right"></span>
              <% end %>
           </td>
